@@ -1,0 +1,26 @@
+import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
+import { ConfirmOrderComponent, ProductContainerComponent } from './components';
+
+const routes: Routes = [
+  {
+    path: 'products',
+    children: [
+      {
+        path: ':productId',
+        component: ProductContainerComponent
+      }
+    ]
+  },
+  {
+    path: 'orders/confirm',
+    component: ConfirmOrderComponent
+  }
+];
+
+@NgModule({
+  imports: [RouterModule.forChild(routes)],
+  exports: [RouterModule]
+})
+export class ProductRoutingModule {
+}

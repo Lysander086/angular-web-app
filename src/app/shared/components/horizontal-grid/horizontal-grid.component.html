@@ -1,0 +1,13 @@
+<div
+  (scroll)="handleScroll($event)"
+  [ngStyle]="{
+    'grid-template-rows': templateRows,
+    'grid-template-columns': templateColumns
+  }"
+  class="container"
+>
+  <ng-content select="[appGridItem]"></ng-content>
+</div>
+<div *ngIf="scrollable" class="underline">
+  <div [ngStyle]="{ margin: sliderMargin }" class="highlight"></div>
+</div>

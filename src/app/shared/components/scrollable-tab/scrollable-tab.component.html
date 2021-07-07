@@ -1,0 +1,19 @@
+<ul [ngStyle]="{ 'background-color': backgroundColor }">
+  <li
+    *ngFor="let menu of menus; let i = index; let even = even; let odd = odd"
+    [ngClass]="{ even: even, odd: odd }"
+  >
+    <a
+      (click)="handleSelection(i)"
+      [ngStyle]="{ color: i === selectedIndex ? titleActiveColor : titleColor }"
+    >
+      {{ menu.title }}
+    </a>
+    <span
+      *ngIf="menu.link === selectedTabLink"
+      [ngStyle]="{ 'background-color': indicatorColor }"
+      class="indicator"
+    ></span>
+  </li>
+</ul>
+<ng-content></ng-content>

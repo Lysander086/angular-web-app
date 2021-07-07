@@ -1,0 +1,12 @@
+<app-horizontal-grid [cols]="5" [displayCols]="5">
+  <span *ngFor="let item of tabItems; let idx = index" appGridItem>
+    <!-- 投影组件的优点此时就体现出来了，对于 img 怎么操作完全交给组件的使用者，而不是封装在 grid 组件中 -->
+    <img
+      (click)="toggleSelected(idx)"
+      [src]="idx === selectedIndex ? item.selectedIcon : item.icon"
+      alt=""
+      appGridItemImage="2rem"
+    />
+    <span appGridItemTitle="0.6rem" class="title">{{ item.title }}</span>
+  </span>
+</app-horizontal-grid>
